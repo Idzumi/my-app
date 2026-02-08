@@ -19,13 +19,14 @@ The server runs at http://localhost:3000.
 | GET | `/health` | Server status and uptime |
 | GET | `/users` | List all users |
 | GET | `/users/:id` | Get a user by ID |
+| GET | `/api/location?q=` | Geocode a city name via OpenStreetMap Nominatim |
 
 ## Web UI
 
 The dashboard at `/` displays:
 
 - **Server health** — live status and uptime from the `/health` endpoint
-- **Users list** — all users fetched from the `/users` endpoint
+- **Location search** — enter a city name to get its country and coordinates
 
 Static files are served from the `public/` directory.
 
