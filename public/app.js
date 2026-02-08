@@ -28,7 +28,7 @@ async function loadUsers() {
 function getWeatherState(temperature, humidity, windSpeed) {
   if (temperature <= 0) return "cold";
   if (temperature > 25) return "heat";
-  if (humidity > 70 && windSpeed > 30) return "rain";
+  if (temperature > 10 && humidity > 70 && windSpeed > 30) return "rain";
   return "normal";
 }
 
