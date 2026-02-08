@@ -27,8 +27,16 @@ The dashboard at `/` displays:
 
 - **Server health** — live status and uptime from the `/health` endpoint
 - **Location search** — enter a city name to get its country, coordinates, and current weather (temperature, feels like, humidity, wind speed)
+- **Weather corgi** — an AI-generated corgi image that changes based on weather conditions:
 
-Location data is provided by [OpenStreetMap Nominatim](https://nominatim.openstreetmap.org/) and weather data by [Open-Meteo](https://open-meteo.com/). Both are free and require no API keys.
+| State | Condition | Corgi |
+|-------|-----------|-------|
+| Cold | temp <= 0°C | In the snow |
+| Heat | temp > 25°C | On tropical beach |
+| Rain | temp 1-25°C, humidity > 70%, wind > 30 km/h | With umbrella |
+| Normal | temp 1-25°C, humidity <= 70% | In a suit near forest |
+
+Location data is provided by [OpenStreetMap Nominatim](https://nominatim.openstreetmap.org/), weather data by [Open-Meteo](https://open-meteo.com/), and corgi images by [Pollinations.ai](https://pollinations.ai/). All are free and require no API keys.
 
 Static files are served from the `public/` directory.
 
