@@ -149,3 +149,20 @@ h2 {
   font-size: 0.8rem;
   margin-top: 0.2rem;
 }
+
+.weather-corgi {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.weather-corgi img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 12px;
+}
+
+.weather-state-label {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: #555;
+}

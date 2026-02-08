@@ -25,6 +25,20 @@ async function loadUsers() {
   }
 }
 
+function getWeatherState(temperature, humidity, windSpeed) {
+  if (temperature <= 0) return "cold";
+  if (temperature > 25) return "heat";
+  if (humidity > 70 && windSpeed > 30) return "rain";
+  return "normal";
+}
+
+const weatherLabels = {
+  cold: "Brrr! Bundle up!",
+  normal: "Nice and pleasant!",
+  rain: "Grab an umbrella!",
+  heat: "Beach time!",
+};
+
 const locationForm = document.getElementById("location-form");
 const locationInput = document.getElementById("location-input");
 const locationResult = document.getElementById("location-result");
@@ -67,6 +81,11 @@ locationForm.addEventListener("submit", async (e) => {
           <div class="weather-value">${w.windSpeed} ${w.units.wind_speed_10m}</div>
           <div class="weather-label">Wind</div>
         </div>
+      </div>
+      <div class="weather-corgi">
+        <img src="/images/${getWeatherState(w.temperature, w.humidity, w.windSpeed)}.jpg"
+             alt="${weatherLabels[getWeatherState(w.temperature, w.humidity, w.windSpeed)]}">
+        <div class="weather-state-label">${weatherLabels[getWeatherState(w.temperature, w.humidity, w.windSpeed)]}</div>
       </div>
     `;
   } catch {
