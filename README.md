@@ -28,3 +28,15 @@ The dashboard at `/` displays:
 - **Users list** — all users fetched from the `/users` endpoint
 
 Static files are served from the `public/` directory.
+
+## Deployment
+
+The app is hosted on [Fly.io](https://fly.io) at:
+
+**https://my-app-idzumi.fly.dev**
+
+To deploy updates:
+
+```bash
+fly deploy
+```
