@@ -29,13 +29,27 @@ app.get("/api/location", async (req, res) => {
       return res.status(404).json({ error: "Location not found" });
     }
     const place = data[0];
+    const { lat, lon } = place;
+
+    const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,relative_humidity_2m`;
+    const weatherRes = await fetch(weatherUrl);
+    const weather = await weatherRes.json();
+
     res.json({
       name: place.address.city || place.address.town || place.address.village || place.name,
       country: place.address.country,
       countryCode: place.address.country_code,
-      lat: place.lat,
-      lon: place.lon,
+      lat,
+      lon,
       displayName: place.display_name,
+      weather: {
+        temperature: weather.current.temperature_2m,
+        feelsLike: weather.current.apparent_temperature,
+        humidity: weather.current.relative_humidity_2m,
+        windSpeed: weather.current.wind_speed_10m,
+        code: weather.current.weather_code,
+        units: weather.current_units,
+      },
     });
   } catch {
     res.status(500).json({ error: "Failed to fetch location" });

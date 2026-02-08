@@ -117,8 +117,35 @@ h2 {
   margin-top: 0.75rem;
 }
 
+.location-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
 .location-coords {
   color: #666;
   font-size: 0.85rem;
-  margin-top: 0.25rem;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.weather-item {
+  text-align: center;
+}
+
+.weather-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.weather-label {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
 }
