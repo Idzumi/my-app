@@ -1,13 +1,14 @@
 import express from "express";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.json({ message: "Hello from my-app!" });
-});
+app.use(express.static(join(__dirname, "public")));
 
 app.get("/health", (req, res) => {
   res.json({ status: "ok", uptime: process.uptime() });
