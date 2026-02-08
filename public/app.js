@@ -42,6 +42,7 @@ const weatherLabels = {
 const locationForm = document.getElementById("location-form");
 const locationInput = document.getElementById("location-input");
 const locationResult = document.getElementById("location-result");
+const defaultCorgi = document.getElementById("default-corgi");
 
 locationForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -58,6 +59,7 @@ locationForm.addEventListener("submit", async (e) => {
       locationResult.innerHTML = `<span class="status error"></span> ${data.error}`;
       return;
     }
+    defaultCorgi.hidden = true;
     const w = data.weather;
     locationResult.innerHTML = `
       <div class="location-header">
