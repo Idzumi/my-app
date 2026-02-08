@@ -19,14 +19,16 @@ The server runs at http://localhost:3000.
 | GET | `/health` | Server status and uptime |
 | GET | `/users` | List all users |
 | GET | `/users/:id` | Get a user by ID |
-| GET | `/api/location?q=` | Geocode a city name via OpenStreetMap Nominatim |
+| GET | `/api/location?q=` | Geocode a city name and get current weather |
 
 ## Web UI
 
 The dashboard at `/` displays:
 
 - **Server health** — live status and uptime from the `/health` endpoint
-- **Location search** — enter a city name to get its country and coordinates
+- **Location search** — enter a city name to get its country, coordinates, and current weather (temperature, feels like, humidity, wind speed)
+
+Location data is provided by [OpenStreetMap Nominatim](https://nominatim.openstreetmap.org/) and weather data by [Open-Meteo](https://open-meteo.com/). Both are free and require no API keys.
 
 Static files are served from the `public/` directory.
 
