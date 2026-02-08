@@ -16,10 +16,21 @@
       <h2>Server Health</h2>
       <div class="card" id="health-card">Loading...</div>
     </section>
-    <section id="users">
+    <section id="location">
+      <h2>Location</h2>
+      <form id="location-form">
+        <div class="search-bar">
+          <input type="text" id="location-input" placeholder="Enter a city, e.g. Warsaw" autocomplete="off">
+          <button type="submit">Search</button>
+        </div>
+      </form>
+      <div id="location-result" class="card" hidden></div>
+    </section>
+
+    <!-- <section id="users">
       <h2>Users</h2>
       <ul id="user-list"></ul>
-    </section>
+    </section> -->
   </main>
   <script src="app.js"></script>
 </body>

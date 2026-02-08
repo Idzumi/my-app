@@ -25,5 +25,32 @@ async function loadUsers() {
   }
 }
 
+const locationForm = document.getElementById("location-form");
+const locationInput = document.getElementById("location-input");
+const locationResult = document.getElementById("location-result");
+
+locationForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const query = locationInput.value.trim();
+  if (!query) return;
+
+  locationResult.hidden = false;
+  locationResult.innerHTML = "Searching...";
+
+  try {
+    const res = await fetch(`/api/location?q=${encodeURIComponent(query)}`);
+    const data = await res.json();
+    if (!res.ok) {
+      locationResult.innerHTML = `<span class="status error"></span> ${data.error}`;
+      return;
+    }
+    locationResult.innerHTML = `
+      <strong>${data.name}</strong>, ${data.country}
+      <div class="location-coords">${data.lat}, ${data.lon}</div>
+    `;
+  } catch {
+    locationResult.innerHTML = `<span class="status error"></span> Failed to search location`;
+  }
+});
+
 loadHealth();
-loadUsers();
